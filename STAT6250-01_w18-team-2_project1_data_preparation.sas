@@ -107,8 +107,8 @@ data eviction_analytic_file;
 	set eviction_raw;
 run;
 *
-Use PROC MEANS to compute the mean of DepDelay for each Origin 
-"Departure Airports", and output the results to a temportatry dataset "temp".
+Use PROC MEANS to compute the count of each column for each Neighborhood 
+"Neighborhoods___Analysis_Boundar", and output the results to a temportatry dataset "temp".
 Use PROC SORT extract and sort just the means the temporary dateset
 ;
 
