@@ -21,50 +21,71 @@ X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPA
 * load external file that generates analytic dataset FRPM1516_analytic_file;
 %include '.\STAT6250-01_w18-team-2_project1_data_preparation.sas';
 
-
-
-title1
-'Research Question: Which neighborhood has the most late payments"?'
-;
-
-title2
-'Rationale: This would help determine which neighborhoods are more likely to benefit from financial assistance.'
-;
-
 *
-Methodology: Use PROC means to list the the total number of evictions due to late payments as the var 
-and neighborhood as the class.
+Research Question: Which neighborhood has the most late payments?
+
+Rationale: This would help determine which neighborhoods are more likely to benefit from financial assistance.
+
+Methodology: Use PROC FREQ to list the the total number of evictions due to late payments and sort them by frequency count.
+
 Limitations: PROC mean lists irrelevant information.
 Possible Follow-up Steps: Roll up the data so that each row is a neighborhood.
 ;
-title1
-'Research Question: Which neighboorhood has the least ammount of evictions?'
-;
-
-title2
-'Rationale: This would help inform us which neighborhoods have a low eviction rate and could help us find methods to reduce them.'
-;
-
-
+proc freq 
+	data=Eviction_analytic_file (where=(Non_Payment=(1)))  
+	order=freq;
+	tables Neighborhoods___Analysis_Boundar*Non_Payment/ norow nocol;
+	output out=nonpe;
+run;
 *
+
+Research Question: What the most likely reason for evictions?
+
+Rationale: This could help policy makers and orginzations target policies that could alliviate evictions.
+
 Methodology: Use proc freq to study the count of total evictions,
-and list them by the neighborhoods. Also, sorting by total evictions.
-Limitations: Some evictions may have more than one reason listed as the eviction reason.
-Possible Follow-up Steps: Count only the rows.
+and list them by eviction reason. Also, sorting by total evictions.
+
+Limitations: Some neighborhoods have more housing than others which makes the results skewed.
+Possible Follow-up Steps: Use percent of evictions/total housing in neighborhood instead of count.
 ;
-
-title1
-'Which neighborhoods have the highest evictions due to development?'
-;
-
-title2
-'Rationale: This would let us know which neighborhood are being evicted due to more developments.'
-;
-
-
+proc freq
+	data=Eviction_analytic_file;
+	table (
+		Non_Payment
+		Breach
+		Nuisance
+		Illegal_Use
+		Failure_to_Sign_Renewal
+		Access_Denial
+		Unapproved_Subtenant
+		Owner_Move_In
+		Demolition
+		Capital_Improvement
+		Substantial_Rehab
+		Ellis_Act_WithDrawal
+		Condo_Conversion
+		Roommate_Same_Unit
+		Other_Cause
+		Late_Payments
+		Lead_Remediation
+		Development
+		Good_Samaritan_Ends)
+		/ norow nocol nocum nopercent;
+	output out=reasone;
+run;
 *
-Methodology: Use proc freq to study the count of the variable development,
-and list them by the neighborhoods.
+Are there more evictions now?
+
+Rationale: This identifies wether evictions have increased, decreased or have had no change since 1997 and helps policy makers, orginizations and developers to understand what the current evictions are relative to what they used to be. This helps policy makers identify key policies that affect housing and evictions.'
+
+Methodology: Use proc freq to study the count of the evictions,
+and list them by year. Also, sorting by total evictions.
+
 Limitations: This data may have missing neighborhood cells.
 Follow-up Steps: Replace empty cells with 'unknown'.
 ;
+proc freq data=Year;
+	tables Year / nocum nopercent;
+	output out=year_temp;
+run;
