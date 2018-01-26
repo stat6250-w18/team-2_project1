@@ -107,34 +107,12 @@ data eviction_analytic_file;
 	set eviction_raw;
 run;
 *
-Use PROC MEANS to compute the count of each column for each Neighborhood 
-"Neighborhoods___Analysis_Boundar", and output the results to a temportatry dataset "temp".
-Use PROC SORT extract and sort just the means the temporary dateset
+Added years dataset for a PROC FREQ study for Q3 by LC.
 ;
 
-proc means noprint data=Eviction_analytic_file;
-	class Neighborhoods___Analysis_Boundar;
-	var Non_Payment
-		Breach
-		Nuisance
-		Illegal_Use
-		Failure_to_Sign_Renewal
-		Access_Denial
-		Unapproved_Subtenant
-		Owner_Move_In
-		Demolition
-		Capital_Improvement
-		Substantial_Rehab
-		Ellis_Act_WithDrawal
-		Condo_Conversion
-		Roommate_Same_Unit
-		Other_Cause
-		Late_Payments
-		Lead_Remediation
-		Development
-		Good_Samaritan_Ends;
-	output out=temp;
-run;
-proc print data = Eviction_analytic_file(firstobs= 1 obs= 15);
-   title 'Evictions in San Francisco by Neighborhoods 1997-2017';
+data year;
+retain year;
+keep year;
+set Eviction_analytic_file;
+year=year(File_Date);
 run;
