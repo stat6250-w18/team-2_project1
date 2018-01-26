@@ -107,9 +107,7 @@ data eviction_analytic_file;
 	set eviction_raw;
 run;
 *
-Use PROC FREQ to compute the count of each column for each Neighborhood 
-"Neighborhoods___Analysis_Boundar", and output the results to a temportatry dataset "temp".
-Use PROC SORT extract and sort just the means the temporary dateset
+Added years dataset for a PROC FREQ study for Q3 by LC.
 ;
 
 data year;
