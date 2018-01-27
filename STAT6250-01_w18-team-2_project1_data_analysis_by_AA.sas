@@ -85,7 +85,7 @@ title1
 ;
 
 title2
- 'Rationale: This could help us better understand if there are any associations between the variable 'Neighborhoods___Analysis_Boundar' and 'Failure_to_Sign_Renewal'
+ 'Rationale: This could help us better understand if there are any associations between the variable ''Neighborhoods___Analysis_Boundar'' and ''Failure_to_Sign_Renewal'''
 ;
 
 *
