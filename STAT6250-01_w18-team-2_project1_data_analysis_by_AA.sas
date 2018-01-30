@@ -11,7 +11,7 @@ Data set name: Eviction_Notice_Analytic_File created in external file
 STAT6250-01_w18-team-2_project1_data_preparation.sas, which is assumed to be
 in the same directory as this file.
 
-See the file referenced above for data set properties.
+See included file for dataset properties
 ;
 
 
