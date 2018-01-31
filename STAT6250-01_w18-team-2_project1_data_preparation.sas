@@ -4,10 +4,11 @@
 *******************************************************************************;
 
 * 
+This file prepares the dataset described below for analysis.
+
 [Dataset Name] Eviction Notices
 
-[Experimental Units] Eviction notices in the city and county of San Francisco 
-since January 1, 1997
+[Experimental Units] Eviction notices in the city and county of San Francisco since January 1, 1997
 
 [Number of Observations] 38,335
 
@@ -26,6 +27,7 @@ since January 1, 1997
 https://github.com/stat6250/team-2_project1/blob/master/Eviction_Notices.xls?raw=true
 ;
 
+
 * load raw Eviction Notices over the wire;
 filename tempfile TEMP;
 proc http
@@ -42,6 +44,8 @@ proc import
 	;
 run;
 filename tempfile clear;
+
+
 * check raw Eviction Notices dataset for duplicates with respect to its composite key;
 proc sort 
 	nodupkey 
@@ -50,6 +54,8 @@ proc sort
 	out = _null_;
 	by Eviction_ID Address;
    ;
+   
+   
 * build analytic dataset from Eviction Notices dataset with the least number of columns
 and minimal cleaning/transformation needed to address research questions in
 corresponding data-analysis files;
@@ -106,6 +112,8 @@ data eviction_analytic_file;
 	;
 	set eviction_raw;
 run;
+
+
 *
 Added years dataset for a PROC FREQ study for Q3 by LC.
 ;

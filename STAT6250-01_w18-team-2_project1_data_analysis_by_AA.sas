@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 *******************************************************************************;
 **************** 80-character banner for column width reference ***************;
 * (set window width to banner width to calibrate line length to 80 characters *;
@@ -14,7 +11,7 @@ Data set name: Eviction_Notice_Analytic_File created in external file
 STAT6250-01_w18-team-2_project1_data_preparation.sas, which is assumed to be
 in the same directory as this file.
 
-See the file referenced above for data set properties.
+See included file for dataset properties
 ;
 
 
@@ -47,11 +44,17 @@ Possible Follow-up Steps: More carefully clean the values of the variable
 eviction_? so that the statistics computed do not include any
 possible illegal values, and better handle missing data.
 ;
-proc freq 
-	data=Eviction_analytic_file (where=(development=(1)))  
-	order=freq;
-	tables Supervisor_District*development/ norow nocol;
-	output out=nonpe;
+proc freq
+        data=Eviction_analytic_file (where=(development=(1))) 
+        order=freq
+    ;
+    tables
+        Supervisor_District*development
+        / norow nocol
+    ;
+    output
+        out=nonpe
+    ;
 run;
 
 
@@ -74,11 +77,17 @@ Possible Follow-up Steps: More carefully clean the values of the variable
 neighborhoods? so that the statistics computed do not include any
 possible illegal values, and better handle missing data.
 ;
-proc freq 
-	data=Eviction_analytic_file (where=(illegal_use=(1)))  
-	order=freq;
-	tables Neighborhoods___Analysis_Boundar*illegal_use/ norow nocol;
-	output out=nonpe;
+proc freq
+        data=Eviction_analytic_file (where=(illegal_use=(1)))  
+        order=freq
+    ;
+    tables
+        Neighborhoods___Analysis_Boundar*illegal_use
+        / norow nocol
+    ;
+    output
+        out=nonpe
+    ;
 run;
 
 
@@ -92,7 +101,6 @@ title2
 ;
 
 *
-
 Methodology: Use PROC FREQ to list the the total number of evictions due failure to sign renewal per neighborhood and sort them by frequency count.
 
 Limitations: This methodology does not account for evictions with missing data,
@@ -101,10 +109,15 @@ nor does it attempt to validate data in any way.
 Follow-up Steps: A possible follow-up to this approach could use an inferential
 statistical technique like beta regression.
 ;
-proc freq 
-	data=Eviction_analytic_file (where=(Failure_to_Sign_Renewal=(1)))  
-	order=freq;
-	tables Neighborhoods___Analysis_Boundar*Failure_to_Sign_Renewal/ norow nocol;
-	output out=nonpe;
+proc freq
+        data=Eviction_analytic_file (where=(Failure_to_Sign_Renewal=(1))) 
+        order=freq
+    ;
+    tables
+        Neighborhoods___Analysis_Boundar*Failure_to_Sign_Renewal
+        / norow nocol
+    ;
+    output
+        out=nonpe
+    ;
 run;
->>>>>>> 0fd4c1067721d25a5aa30a6ddea7e0613d6b6796
