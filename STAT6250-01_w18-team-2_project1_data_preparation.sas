@@ -8,7 +8,8 @@ This file prepares the dataset described below for analysis.
 
 [Dataset Name] Eviction Notices
 
-[Experimental Units] Eviction notices in the city and county of San Francisco since January 1, 1997
+[Experimental Units] Eviction notices in the city and county of San Francisco 
+since January 1, 1997
 
 [Number of Observations] 38,335
 
@@ -46,7 +47,8 @@ run;
 filename tempfile clear;
 
 
-* check raw Eviction Notices dataset for duplicates with respect to its composite key;
+* check raw Eviction Notices dataset for duplicates with respect to its 
+composite key;
 proc sort 
 	nodupkey 
 	data=eviction_raw
@@ -56,9 +58,9 @@ proc sort
    ;
    
    
-* build analytic dataset from Eviction Notices dataset with the least number of columns
-and minimal cleaning/transformation needed to address research questions in
-corresponding data-analysis files;
+* build analytic dataset from Eviction Notices dataset with the least 
+number of columns and minimal cleaning/transformation needed to address 
+research questions in corresponding data-analysis files;
 data eviction_analytic_file;
 	retain
 		Eviction_ID
@@ -114,13 +116,17 @@ data eviction_analytic_file;
 run;
 
 
-*
-Added years dataset for a PROC FREQ study for Q3 by LC.
+*Added years dataset for a PROC FREQ study for Q3 by LC.
 ;
-
 data year;
-retain year;
-keep year;
-set Eviction_analytic_file;
-year=year(File_Date);
+	retain year;
+	keep year;
+	set Eviction_analytic_file;
+	year=year(File_Date);
+run;
+
+
+*Merge year column to raw evictions file ;
+data new_eviction_file;
+	merge Eviction_analytic_file year;
 run;
