@@ -118,7 +118,6 @@ run;
 
 *Added years dataset for a PROC FREQ study for Q3 by LC.
 ;
-
 data year;
 	retain year;
 	keep year;
@@ -127,7 +126,7 @@ data year;
 run;
 
 
-*Merge year column to raw evictions file 
+*Merge year column to raw evictions file ;
 data new_eviction_file;
 	merge Eviction_analytic_file year;
 run;
