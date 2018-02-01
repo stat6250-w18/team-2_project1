@@ -42,7 +42,6 @@ run;
 
 
 *
-
 Research Question: What the most likely reason for evictions?
 
 Rationale: This could help policy makers and orginzations target policies that could alliviate evictions.
