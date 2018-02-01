@@ -21,6 +21,7 @@ X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPA
 * load external file that generates analytic dataset FRPM1516_analytic_file;
 %include '.\STAT6250-01_w18-team-2_project1_data_preparation.sas';
 
+
 *
 Research Question: Which neighborhood has the most late payments?
 
@@ -29,6 +30,7 @@ Rationale: This would help determine which neighborhoods are more likely to bene
 Methodology: Use PROC FREQ to list the the total number of evictions due to late payments and sort them by frequency count.
 
 Limitations: PROC mean lists irrelevant information.
+
 Possible Follow-up Steps: Roll up the data so that each row is a neighborhood.
 ;
 proc freq 
@@ -37,6 +39,8 @@ proc freq
 	tables Neighborhoods___Analysis_Boundar*Non_Payment/ norow nocol;
 	output out=nonpe;
 run;
+
+
 *
 
 Research Question: What the most likely reason for evictions?
@@ -47,6 +51,7 @@ Methodology: Use proc freq to study the count of total evictions,
 and list them by eviction reason. Also, sorting by total evictions.
 
 Limitations: Some neighborhoods have more housing than others which makes the results skewed.
+
 Possible Follow-up Steps: Use percent of evictions/total housing in neighborhood instead of count.
 ;
 proc freq
@@ -74,6 +79,8 @@ proc freq
 		/ norow nocol nocum nopercent;
 	output out=reasone;
 run;
+
+
 *
 Are there more evictions now?
 
@@ -83,9 +90,11 @@ Methodology: Use proc freq to study the count of the evictions,
 and list them by year. Also, sorting by total evictions.
 
 Limitations: This data may have missing neighborhood cells.
+
 Follow-up Steps: Replace empty cells with 'unknown'.
 ;
-proc freq data=Year;
+proc freq 
+	data=Year;
 	tables Year / nocum nopercent;
 	output out=year_temp;
 run;
