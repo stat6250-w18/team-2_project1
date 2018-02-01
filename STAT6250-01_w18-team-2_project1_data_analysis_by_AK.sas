@@ -44,17 +44,6 @@ Possible Follow-up Steps: The output table would be an exhaustive summary
 difficult to comprehend.Filter the years which show a significant change and 
 analyze the factors by those years.
 ;
-data year;
-      retain year;
-      keep year;
-      set Eviction_analytic_file;
-      year=year(File_Date);
-run;
-
-data new_eviction_file;
-      merge Eviction_analytic_file year;
-run;
-
 proc freq 
 	data=new_eviction_file 
 	order=freq;
