@@ -5,17 +5,13 @@
 
 *
 This file uses the following analytic dataset to address several research
-
 questions regarding evictions in San Francisco, CA.
 
 Dataset Name: Eviction_analytic_file created in external file
-
 STAT6250-01_w18-team-2_project1_data_preparation.sas, which is assumed to be
-
 in the same directory as this file
 
 See included file for dataset properties
-
 ;
 
 * environmental setup;
