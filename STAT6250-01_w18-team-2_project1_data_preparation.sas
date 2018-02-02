@@ -17,7 +17,8 @@ since January 1, 1997
 
 [Data Source] https://catalog.data.gov/dataset/eviction-notices
 
-[Data Dictionary] https://data.sfgov.org/Housing-and-Buildings/Eviction-Notices/5cei-gny5
+[Data Dictionary] https://data.sfgov.org/Housing-and-Buildings/Eviction-Notices
+/5cei-gny5
 
 [Unique ID Schema] Column "Eviction ID" is a primary key.
 ;
@@ -126,7 +127,9 @@ data year;
 run;
 
 
-*Merge year column to raw evictions file ;
+*Merge years dataset to raw evictions file for Q1 by AK, which
+analyzes all the factors grouped by year
+;
 data new_eviction_file;
 	merge Eviction_analytic_file year;
 run;

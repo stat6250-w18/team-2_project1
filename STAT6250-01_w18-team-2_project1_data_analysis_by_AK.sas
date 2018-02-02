@@ -25,24 +25,26 @@ X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPA
 
 
 *
-Research Question: The number of evictions have gradually decreased over the years.
-What factors contributed to the decrease?
+Research Question: The number of evictions have gradually decreased over
+the years.What factors contributed to the decrease?
 
-Rationale: Initial look at the data seems to indicate a decrease in evictions over
-the years.If significant factors contributing to this decline could be identified, 
-it may help in focusing on those factors in other impacted neighbourhoods.
+Rationale: Initial look at the data seems to indicate a decrease in 
+evictions over the years.If significant factors contributing to this 
+decline could be identified, it may help in focusing on those factors
+in other impacted neighbourhoods.
 
-Methodology: Use PROC FREQ to gather the summary data by year and verify if above 
-rationale is true.If number of evictions did drop by year, group by all other 
-factors and analyze the count.The FREQ output will be a N way table covering
-all facors across years.
+Methodology: Use PROC FREQ to gather the summary data by year and verify 
+if above rationale is true.If number of evictions did drop by year,
+group by all other factors and analyze the count.The FREQ output
+will be a N way table covering all facors across years.
 
-Limitations: Grouping by year and factors may not yield accurate results.
-Since multiple factors could be marked true, the totals may not tally.
+Limitations: Grouping by year and factors may not yield accurate
+results.Since multiple factors could be marked true, the totals
+may not tally.
 
-Possible Follow-up Steps: The output table would be an exhaustive summary
-difficult to comprehend.Filter the years which show a significant change and 
-analyze the factors by those years.
+Possible Follow-up Steps: The output table would be an exhaustive 
+summary difficult to comprehend.Filter the years which show a 
+significant change and analyze the factors by those years.
 ;
 proc freq 
 	data=new_eviction_file 
@@ -64,8 +66,8 @@ run;
 
 
 *
-Research Question: Why do certain neighbourhoods have significantly higher 
-evictions?'
+Research Question: Why do certain neighbourhoods have significantly 
+higher evictions?'
  
 Rationale: This could help in focusing more on those neighbouhoods.
 
@@ -100,9 +102,10 @@ Rationale:This will help in focusing more on specific factors.
 Methodology: Use PROC FREQ to gather the summary of evictions by factors. 
 Focus on the factors that have higher frequency.
 
-Limitations:
+Limitations:Multiple factors could be true for an eviction.
 
-Follow-up Steps: 
+Follow-up Steps:Tallying by count of each factor may not be
+appropriate. Analyze by factors combination too.
 ;
 proc freq
 	data=Eviction_analytic_file;
