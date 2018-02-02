@@ -35,10 +35,11 @@ title2
 ;
 
  *
-Methodology: Use PROC FREQ to calculate the frequency of evictions due to development in particular districts.
+Methodology: Use PROC FREQ to calculate the frequency of evictions due to 
+development in particular districts.
 
-Limitations: This methodology does not account for evictions with missing data,
-nor does it attempt to validate data in any way. 
+Limitations: This methodology does not account for evictions with missing 
+data, nor does it attempt to validate data in any way. 
 
 Possible Follow-up Steps: More carefully clean the values of the variable
 eviction_? so that the statistics computed do not include any
@@ -68,10 +69,11 @@ title2
 ;
 
  *
-Methodology: Use PROC FREQ to calculate the frequency of neighborhood eviction due to illegal substances.
+Methodology: Use PROC FREQ to calculate the frequency of neighborhood 
+eviction due to illegal substances.
 
-Limitations: This methodology does not account for evictions with missing data,
-nor does it attempt to validate data in any way. 
+Limitations: This methodology does not account for evictions with missing 
+data, nor does it attempt to validate data in any way. 
 
 Possible Follow-up Steps: More carefully clean the values of the variable
 neighborhoods? so that the statistics computed do not include any
@@ -101,13 +103,14 @@ title2
 ;
 
 *
-Methodology: Use PROC FREQ to list the the total number of evictions due failure to sign renewal per neighborhood and sort them by frequency count.
+Methodology: Use PROC FREQ to list the the total number of evictions due 
+failure to sign renewal per neighborhood and sort them by frequency count.
 
-Limitations: This methodology does not account for evictions with missing data,
-nor does it attempt to validate data in any way. 
+Limitations: This methodology does not account for evictions with missing 
+data, nor does it attempt to validate data in any way. 
 
-Follow-up Steps: A possible follow-up to this approach could use an inferential
-statistical technique like beta regression.
+Follow-up Steps: A possible follow-up to this approach could use an 
+inferential statistical technique like beta regression.
 ;
 proc freq
         data=Eviction_analytic_file (where=(Failure_to_Sign_Renewal=(1))) 
