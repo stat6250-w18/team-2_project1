@@ -35,12 +35,15 @@ title2
 ;
 
 footnote1
- 'Based on the above output, supervising district 2 had the most evictions due to development.'
+ 'Based on the above output, we can find the district number with the most evictions listed from greatest to least due to development.'
  ;
  
  footnote2
-  'However, this does not specifiy which neighborhoods in the district so a follow-up analysis would be useful.'
+  'It seems like Supervising District 2 had the most evictions due to development.'
 ;
+
+footnote3
+ 'However, this does not specifiy which neighborhoods in the district so a follow-up analysis would be useful.'
  *
 Methodology: Use PROC FREQ to calculate the frequency of evictions due to 
 development in particular districts.
@@ -76,11 +79,15 @@ title2
 ;
 
 footnote1
- 'Based on the above output, Mission was the first to have the most evictions due to illegal use of substances.'
+ 'Based on the above output, we can find which neighborhood was evicted listed from greatest to least due to illegal use.'
  ;
  
- footnote2
-  'The second neighborhood with the most evictions due to illegal use of substance is Tenderloin.'
+footnote2
+ 'Mission was the first to have the most evictions due to illegal use.'
+ ;
+ 
+ footnote3
+  'The second neighborhood with the most evictions due to illegal use is Tenderloin.'
   ;
  *
 Methodology: Use PROC FREQ to calculate the frequency of neighborhood 
@@ -117,7 +124,11 @@ title2
 ;
 
  footnote1
- 'Based on the above output, North Beach was the first to have the most evictions due to failure to sign the renewal.'
+ 'Based on the above output, we can find which neighborhood was evicted listed from greatest to least due failure to sign the renewal.'
+ ;
+ 
+ footnote2
+ 'North Beach was the first to have the most evictions due to failure to sign the renewal.'
  ;
  
  footnote2
