@@ -34,6 +34,16 @@ title2
  'Rationale: This will help each district identify if people are being evicted due to development and if so, a project plan to improve it.'
 ;
 
+footnote1
+ 'Based on the above output, we can find the district number with the most evictions listed from greatest to least due to development.'
+;
+ 
+footnote2
+  'It seems like Supervising District 2 had the most evictions due to development.'
+;
+
+footnote3
+ 'However, this does not specifiy which neighborhoods in the district so a follow-up analysis would be useful.'
  *
 Methodology: Use PROC FREQ to calculate the frequency of evictions due to 
 development in particular districts.
@@ -57,6 +67,8 @@ proc freq
         out=nonpe
     ;
 run;
+title;
+footnote;
 
 
 
@@ -68,6 +80,17 @@ title2
  'Rationale: This could help us better understand use of illegal substances so the city can apply resources to help the problem.'
 ;
 
+footnote1
+ 'Based on the above output, we can find which neighborhood was evicted listed from greatest to least due to illegal use.'
+;
+ 
+footnote2
+ 'Mission was the first to have the most evictions due to illegal use.'
+;
+ 
+footnote3
+  'The second neighborhood with the most evictions due to illegal use is Tenderloin.'
+ ;
  *
 Methodology: Use PROC FREQ to calculate the frequency of neighborhood 
 eviction due to illegal substances.
@@ -91,6 +114,8 @@ proc freq
         out=nonpe
     ;
 run;
+title;
+footnote;
 
 
 
@@ -102,6 +127,17 @@ title2
  'Rationale: This could help us better understand if there are any associations between the variable ''Neighborhoods___Analysis_Boundar'' and ''Failure_to_Sign_Renewal'''
 ;
 
+footnote1
+ 'Based on the above output, we can find which neighborhood was evicted listed from greatest to least due failure to sign the renewal.'
+;
+ 
+footnote2
+ 'North Beach was the first to have the most evictions due to failure to sign the renewal.'
+;
+ 
+footnote3
+  'The second neighborhood with the most evictions due to failure to sign the renewal is Bayview Hunters Point.'
+ ;
 *
 Methodology: Use PROC FREQ to list the the total number of evictions due 
 failure to sign renewal per neighborhood and sort them by frequency count.
@@ -124,3 +160,5 @@ proc freq
         out=nonpe
     ;
 run;
+title;
+footnote;
