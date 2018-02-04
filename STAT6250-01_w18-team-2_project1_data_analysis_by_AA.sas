@@ -156,3 +156,5 @@ proc freq
         out=nonpe
     ;
 run;
+title;
+footnote;
