@@ -24,15 +24,28 @@ X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPA
 %include '.\STAT6250-01_w18-team-2_project1_data_preparation.sas';
 
 
+
+title1
+'Research Question: The number of evictions have gradually decreased over the years.What factors contributed to the decrease?'
+;
+
+title
+'Rationale: Initial look at the data seems to indicate a decrease in evictions over the years.If significant factors contributing to this decline could be identified, it may help in focusing on those factors in other impacted neighbourhoods.'
+;
+
+footnote1
+'Based on output of grouping by year, it is evident that the evictions did decrease over the years.
+;
+
+footnote2
+'Expanding the PROC output to group by year and all the factors does give a summary of how the factors combinations changed over years'
+;
+
+footnote3
+'Further analysis to break down by the years with significant changes is required'
+;
+
 *
-Research Question: The number of evictions have gradually decreased over
-the years.What factors contributed to the decrease?
-
-Rationale: Initial look at the data seems to indicate a decrease in 
-evictions over the years.If significant factors contributing to this 
-decline could be identified, it may help in focusing on those factors
-in other impacted neighbourhoods.
-
 Methodology: Use PROC FREQ to gather the summary data by year and verify 
 if above rationale is true.If number of evictions did drop by year,
 group by all other factors and analyze the count.The FREQ output
@@ -63,14 +76,27 @@ proc freq
 	Good_Samaritan_Ends/norow nocol list;
 	output out=data1;
 run;
+title;
+footnote;
 
 
-*
-Research Question: Why do certain neighbourhoods have significantly 
-higher evictions?'
+
+title
+'Research Question: Why do certain neighbourhoods have significantly higher evictions?'
+;
  
-Rationale: This could help in focusing more on those neighbouhoods.
+title 
+'Rationale: This could help in focusing more on those neighbouhoods.'
+;
 
+footnote1
+'Based on output, we get a summary of factors contributing to eviction by each neighbourhood.'
+;
+
+footnote2
+'Further analysis to break down by the neighbourhoods with significant changes is required'
+;
+*
 Methodology: Use PROC FREQ to gather the summary of evictions 
 by neighbourhood. Analyze the factors by count for each neighborhood.
 
@@ -92,13 +118,28 @@ proc freq
 	Development*Good_Samaritan_Ends/ norow nocol list;
 	output out=data;
 run;
+title;
+footnote;
 
+
+
+title1
+'Research Question:What factors contributed more to evictions?'
+;
+
+title2 
+'Rationale:This will help in focusing more on specific factors.'
+;
+
+footnote1
+'The output gives a clear summary of the count of evictions by each factor.'
+;
+
+footnote2
+'It is clear that owner move in, breach and ellis act withdrawal are the primary factors that contribute to eviction'
+;
 
 *
-What factors contributed more to evictions?
- 
-Rationale:This will help in focusing more on specific factors.
-
 Methodology: Use PROC FREQ to gather the summary of evictions by factors. 
 Focus on the factors that have higher frequency.
 
@@ -132,3 +173,5 @@ proc freq
 		/ norow nocol nocum nopercent list;
 	output out=factors;
 run;
+title;
+footnote;
