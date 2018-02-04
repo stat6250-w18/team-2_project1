@@ -34,6 +34,13 @@ title2
  'Rationale: This will help each district identify if people are being evicted due to development and if so, a project plan to improve it.'
 ;
 
+footnote1
+ 'Based on the above output, supervising district 2 had the most evictions due to development.'
+ ;
+ 
+ footnote2
+  'However, this does not specifiy which neighborhoods in the district so a follow-up analysis would be useful.'
+;
  *
 Methodology: Use PROC FREQ to calculate the frequency of evictions due to 
 development in particular districts.
@@ -68,6 +75,13 @@ title2
  'Rationale: This could help us better understand use of illegal substances so the city can apply resources to help the problem.'
 ;
 
+footnote1
+ 'Based on the above output, Mission was the first to have the most evictions due to illegal use of substances.'
+ ;
+ 
+ footnote2
+  'The second neighborhood with the most evictions due to illegal use of substance is Tenderloin.'
+  ;
  *
 Methodology: Use PROC FREQ to calculate the frequency of neighborhood 
 eviction due to illegal substances.
@@ -102,6 +116,13 @@ title2
  'Rationale: This could help us better understand if there are any associations between the variable ''Neighborhoods___Analysis_Boundar'' and ''Failure_to_Sign_Renewal'''
 ;
 
+ footnote1
+ 'Based on the above output, North Beach was the first to have the most evictions due to failure to sign the renewal.'
+ ;
+ 
+ footnote2
+  'The second neighborhood with the most evictions due to failure to sign the renewal is Bayview Hunters Point.'
+  ;
 *
 Methodology: Use PROC FREQ to list the the total number of evictions due 
 failure to sign renewal per neighborhood and sort them by frequency count.
