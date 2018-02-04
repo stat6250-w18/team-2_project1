@@ -36,9 +36,9 @@ title2
 
 footnote1
  'Based on the above output, we can find the district number with the most evictions listed from greatest to least due to development.'
- ;
+;
  
- footnote2
+footnote2
   'It seems like Supervising District 2 had the most evictions due to development.'
 ;
 
@@ -80,15 +80,15 @@ title2
 
 footnote1
  'Based on the above output, we can find which neighborhood was evicted listed from greatest to least due to illegal use.'
- ;
+;
  
 footnote2
  'Mission was the first to have the most evictions due to illegal use.'
- ;
+;
  
- footnote3
+footnote3
   'The second neighborhood with the most evictions due to illegal use is Tenderloin.'
-  ;
+ ;
  *
 Methodology: Use PROC FREQ to calculate the frequency of neighborhood 
 eviction due to illegal substances.
@@ -123,17 +123,17 @@ title2
  'Rationale: This could help us better understand if there are any associations between the variable ''Neighborhoods___Analysis_Boundar'' and ''Failure_to_Sign_Renewal'''
 ;
 
- footnote1
+footnote1
  'Based on the above output, we can find which neighborhood was evicted listed from greatest to least due failure to sign the renewal.'
- ;
+;
  
- footnote2
+footnote2
  'North Beach was the first to have the most evictions due to failure to sign the renewal.'
- ;
+;
  
- footnote2
+footnote3
   'The second neighborhood with the most evictions due to failure to sign the renewal is Bayview Hunters Point.'
-  ;
+ ;
 *
 Methodology: Use PROC FREQ to list the the total number of evictions due 
 failure to sign renewal per neighborhood and sort them by frequency count.
