@@ -24,12 +24,23 @@ X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPA
 %include '.\STAT6250-01_w18-team-2_project1_data_preparation.sas';
 
 
+title1
+ 'Research Question: Which neighborhood has the most late payments?'
+;
+
+title2
+ 'Rationale: This would help determine which neighborhoods are more likely to benefit from financial assistance.'
+;
+
+footnote1
+"Based on the findings above, we can find the neighborhoods with non-payment evictions sorted by most to least evictions by non-payment."
+;
+
+footnote2
+"The Mission district has the most evictions due to non-payments; 10.161% of all evictions for non-payments were in the Mission district"
+;
+
 *
-Research Question: Which neighborhood has the most late payments?
-
-Rationale: This would help determine which neighborhoods are more likely to
-benefit from financial assistance.
-
 Methodology: Use PROC FREQ to list the the total number of evictions due to 
 late payments and sort them by frequency count.
 
@@ -41,16 +52,28 @@ proc freq
 	data=Eviction_analytic_file (where=(Non_Payment=(1)))  
 	order=freq;
 	tables Neighborhoods___Analysis_Boundar*Non_Payment/ norow nocol;
-	output out=nonpe;
+	output out=nonpymt;
 run;
+title;
+footnote;
 
+title1
+ 'Research Question: What the most likely reason for evictions?'
+;
+
+title2
+ 'Rationale: This could help policy makers and orginzations target policies that could alliviate evictions.'
+;
+
+footnote1
+"Based on the findings above, we see the number of evictions for each type of evictions."
+;
+
+footnote2
+"Breach is the most likely cause for an eviction."
+;
 
 *
-Research Question: What the most likely reason for evictions?
-
-Rationale: This could help policy makers and orginzations target policies that
-could alliviate evictions.
-
 Methodology: Use proc freq to study the count of total evictions,
 and list them by eviction reason. Also, sorting by total evictions.
 
@@ -85,17 +108,29 @@ proc freq
 		/ norow nocol nocum nopercent;
 	output out=reasone;
 run;
+title;
+footnote;
 
+title1
+ 'Research Question: Are there more evictions now?'
+;
+
+title1
+ 'Rationale: This identifies wether evictions have increased, decreased or have had no change since 1997 
+and helps policy makers, orginizations and developers to understand what the current evictions are relative to what 
+they used to be. This helps policy makers identify key policies that affect housing and
+evictions.'
+;
+
+footnote1
+"Based on the findings above, we can see how many evictions there were per year."
+;
+
+footnote2
+"Evictions decreased a lot in 2017, however, it should be noted that evictions were increasing prior to that."
+;
 
 *
-Are there more evictions now?
-
-Rationale: This identifies wether evictions have increased, decreased or
-have had no change since 1997 and helps policy makers, orginizations and
-developers to understand what the current evictions are relative to what they used
-to be. This helps policy makers identify key policies that affect housing and
-evictions.'
-
 Methodology: Use proc freq to study the count of the evictions,
 and list them by year. Also, sorting by total evictions.
 
@@ -108,3 +143,5 @@ proc freq
 	tables Year / nocum nopercent;
 	output out=year_temp;
 run;
+title;
+footnote;
