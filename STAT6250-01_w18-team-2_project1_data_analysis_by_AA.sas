@@ -44,6 +44,7 @@ footnote2
 
 footnote3
  'However, this does not specifiy which neighborhoods in the district so a follow-up analysis would be useful.'
+ ;
  *
 Methodology: Use PROC FREQ to calculate the frequency of evictions due to 
 development in particular districts.
