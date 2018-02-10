@@ -86,6 +86,7 @@ data eviction_analytic_file;
 		Lead_Remediation
 		Development
 		Good_Samaritan_Ends
+		Supervisor_District
 		Neighborhoods___Analysis_Boundar
 	;
 	keep
@@ -111,6 +112,7 @@ data eviction_analytic_file;
 		Lead_Remediation
 		Development
 		Good_Samaritan_Ends
+		Supervisor_District
 		Neighborhoods___Analysis_Boundar
 	;
 	set eviction_raw;
