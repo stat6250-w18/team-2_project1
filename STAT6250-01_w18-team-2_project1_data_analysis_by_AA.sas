@@ -6,11 +6,9 @@
 *
 This file uses the following analytic data set to address several research
 questions regarding eviction in the Bay Area, specifically San Francisco, CA.
-
 Data set name: Eviction_Notice_Analytic_File created in external file
 STAT6250-01_w18-team-2_project1_data_preparation.sas, which is assumed to be
 in the same directory as this file.
-
 See included file for dataset properties
 ;
 
@@ -39,7 +37,7 @@ footnote1
 ;
  
 footnote2
-  'It seems like Supervising District 2 had the most evictions due to development.'
+  'It seems like Supervising District 6 had the most evictions due to development.'
 ;
 
 footnote3
@@ -48,10 +46,8 @@ footnote3
  *
 Methodology: Use PROC FREQ to calculate the frequency of evictions due to 
 development in particular districts.
-
 Limitations: This methodology does not account for evictions with missing 
 data, nor does it attempt to validate data in any way. 
-
 Possible Follow-up Steps: More carefully clean the values of the variable
 eviction_? so that the statistics computed do not include any
 possible illegal values, and better handle missing data.
@@ -86,7 +82,7 @@ footnote1
 ;
  
 footnote2
- 'Mission was the first to have the most evictions due to illegal use.'
+ 'The neighborhood with the most evictions due to illegal use is Mission.'
 ;
  
 footnote3
@@ -95,10 +91,8 @@ footnote3
  *
 Methodology: Use PROC FREQ to calculate the frequency of neighborhood 
 eviction due to illegal substances.
-
 Limitations: This methodology does not account for evictions with missing 
 data, nor does it attempt to validate data in any way. 
-
 Possible Follow-up Steps: More carefully clean the values of the variable
 neighborhoods? so that the statistics computed do not include any
 possible illegal values, and better handle missing data.
@@ -121,19 +115,19 @@ footnote;
 
 
 title1
- 'Research Question: Which neighborhoods fail to sign the renewal?'
+ 'Research Question: Which neighborhoods were evicted the most due to failure of signing the renewal?'
 ;
 
 title2
- 'Rationale: This could help us better understand if there are any associations between the variable ''Neighborhoods___Analysis_Boundar'' and ''Failure_to_Sign_Renewal'''
+ 'Rationale: This could help us better understand the relationship between the variable ''Neighborhoods___Analysis_Boundar'' and ''Failure_to_Sign_Renewal'''
 ;
 
 footnote1
- 'Based on the above output, we can find which neighborhood was evicted listed from greatest to least due failure to sign the renewal.'
+ 'Based on the above output, we can find which neighborhoods was evicted listed from greatest to least due to failure of signing the renewal.'
 ;
  
 footnote2
- 'North Beach was the first to have the most evictions due to failure to sign the renewal.'
+ 'North Beach had the most evictions due to failure to sign the renewal.'
 ;
  
 footnote3
@@ -142,10 +136,8 @@ footnote3
 *
 Methodology: Use PROC FREQ to list the the total number of evictions due 
 failure to sign renewal per neighborhood and sort them by frequency count.
-
 Limitations: This methodology does not account for evictions with missing 
 data, nor does it attempt to validate data in any way. 
-
 Follow-up Steps: A possible follow-up to this approach could use an 
 inferential statistical technique like beta regression.
 ;
