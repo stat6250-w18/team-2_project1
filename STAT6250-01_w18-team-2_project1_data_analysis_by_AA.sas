@@ -60,9 +60,6 @@ proc freq
         Supervisor_District*development
         / norow nocol
     ;
-    output
-        out=nonpe
-    ;
 run;
 title;
 footnote;
@@ -105,9 +102,6 @@ proc freq
         Neighborhoods___Analysis_Boundar*illegal_use
         / norow nocol
     ;
-    output
-        out=nonpe
-    ;
 run;
 title;
 footnote;
@@ -148,9 +142,6 @@ proc freq
     tables
         Neighborhoods___Analysis_Boundar*Failure_to_Sign_Renewal
         / norow nocol
-    ;
-    output
-        out=nonpe
     ;
 run;
 title;
