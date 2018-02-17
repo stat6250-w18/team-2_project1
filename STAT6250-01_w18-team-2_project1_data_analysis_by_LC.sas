@@ -37,7 +37,7 @@ footnote1
 ;
 
 footnote2
-"The Mission district has the most evictions due to non-payments; 10.161% of all evictions for non-payments were in the Mission district"
+"The Mission district has the most evictions due to non-payments; 10.1641% of all evictions for non-payments were in the Mission district"
 ;
 
 footnote3
@@ -54,7 +54,7 @@ Possible Follow-up Steps: Roll up the data so that each row is a neighborhood.
 ;
 
 proc freq 
-	data=countnonpymt (where=(Non_Payment=(1)))  
+	data=countnonpymt (where=(Non_Payment=(1)))  noprint
 	order=freq;
 	tables Neighborhood*Non_Payment/ norow nocol
 	out=nonpym
@@ -93,9 +93,12 @@ Possible Follow-up Steps: Use percent of evictions/total housing in neighborhood
 instead of count.
 ;
 proc means
-	data=Eviction_analytic_file(drop = File_Date)
-	mean;
+	data=Eviction_analytic_file(drop = File_Date) 
+	mean
+;
 run;
+
+
 title;
 footnote;
 
@@ -104,13 +107,13 @@ title1
 ;
 
 title2
- 'Rationale: This identifies wether evictions have increased, decreased or have had no change since 1997'
+ 'Rationale: This identifies wether evictions have increased, decreased or have had no change'
 ;
 title3
- 'and helps policy makers, orginizations and developers understand what current evictions are relative to what'
+ 'since 1997 and helps policy makers, orginizations and developers understand what current evictions'
 ;
 title4
- 'they used to be. This helps policy makers identify key policies that affect housing and evictions.'
+ 'are relative to what they used to be. This helps policy makers identify key policies that affect housing and evictions.'
 ;
 
 footnote1
@@ -130,13 +133,12 @@ Limitations: This data may have missing neighborhood cells.
 Follow-up Steps: Replace empty cells with 'unknown'.
 ;
 proc freq 
-	data=year;
+	data=year noprint;
 	tables year / nocum nopercent 
 	out = year_temp
 	;
 run;
 proc sgplot data=year_temp;
-   title 'Highlight a Value on a Graph';
    series x=year y=count;
    scatter x=year y=count;
 run;
