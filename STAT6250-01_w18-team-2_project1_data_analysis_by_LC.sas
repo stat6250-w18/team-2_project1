@@ -40,6 +40,10 @@ footnote2
 "The Mission district has the most evictions due to non-payments; 10.161% of all evictions for non-payments were in the Mission district"
 ;
 
+footnote3
+"Rising rent prices may be driving the high evictions."
+;
+
 *
 Methodology: Use PROC FREQ to list the the total number of evictions due to 
 late payments and sort them by frequency count.
@@ -48,12 +52,17 @@ Limitations: PROC mean lists irrelevant information.
 
 Possible Follow-up Steps: Roll up the data so that each row is a neighborhood.
 ;
+
 proc freq 
-	data=Eviction_analytic_file (where=(Non_Payment=(1)))  
+	data=countnonpymt (where=(Non_Payment=(1)))  
 	order=freq;
-	tables Neighborhoods___Analysis_Boundar*Non_Payment/ norow nocol;
-	output out=nonpymt;
+	tables Neighborhood*Non_Payment/ norow nocol
+	out=nonpym
+;
 run;
+proc print data=nonpym(firstobs = 2 obs = 5);
+run;
+
 title;
 footnote;
 
@@ -70,7 +79,7 @@ footnote1
 ;
 
 footnote2
-"Breach is the most likely cause for an eviction."
+"Owner Move In is the most likely cause for an eviction."
 ;
 
 *
@@ -83,43 +92,25 @@ results skewed.
 Possible Follow-up Steps: Use percent of evictions/total housing in neighborhood
 instead of count.
 ;
-proc freq
-	data=Eviction_analytic_file;
-	table (
-		Non_Payment
-		Breach
-		Nuisance
-		Illegal_Use
-		Failure_to_Sign_Renewal
-		Access_Denial
-		Unapproved_Subtenant
-		Owner_Move_In
-		Demolition
-		Capital_Improvement
-		Substantial_Rehab
-		Ellis_Act_WithDrawal
-		Condo_Conversion
-		Roommate_Same_Unit
-		Other_Cause
-		Late_Payments
-		Lead_Remediation
-		Development
-		Good_Samaritan_Ends)
-		/ norow nocol nocum nopercent;
-	output out=reasone;
+proc means
+	data=Eviction_analytic_file(drop = File_Date)
+	mean;
 run;
 title;
 footnote;
 
 title1
- 'Research Question: Are there more evictions now?'
+ 'Research Question: What is the trend for the number of evictions between 1997-2017?'
 ;
 
-title1
- 'Rationale: This identifies wether evictions have increased, decreased or have had no change since 1997 
-and helps policy makers, orginizations and developers to understand what the current evictions are relative to what 
-they used to be. This helps policy makers identify key policies that affect housing and
-evictions.'
+title2
+ 'Rationale: This identifies wether evictions have increased, decreased or have had no change since 1997'
+;
+title3
+ 'and helps policy makers, orginizations and developers understand what current evictions are relative to what'
+;
+title4
+ 'they used to be. This helps policy makers identify key policies that affect housing and evictions.'
 ;
 
 footnote1
@@ -139,9 +130,17 @@ Limitations: This data may have missing neighborhood cells.
 Follow-up Steps: Replace empty cells with 'unknown'.
 ;
 proc freq 
-	data=Year;
-	tables Year / nocum nopercent;
-	output out=year_temp;
+	data=year;
+	tables year / nocum nopercent 
+	out = year_temp
+	;
 run;
+proc sgplot data=year_temp;
+   title 'Highlight a Value on a Graph';
+   series x=year y=count;
+   scatter x=year y=count;
+run;
+
+
 title;
 footnote;
