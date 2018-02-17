@@ -135,3 +135,11 @@ analyzes all the factors grouped by year
 data new_eviction_file;
 	merge Eviction_analytic_file year;
 run;
+
+
+*Renamed labels and variables in dataset for a PROC FREQ study for Q1 by LC.
+;
+data countnonpymt;
+	set Eviction_analytic_file (rename=(Neighborhoods___Analysis_Boundar=Neighborhood));
+	label Neighborhood="Location";
+run;
